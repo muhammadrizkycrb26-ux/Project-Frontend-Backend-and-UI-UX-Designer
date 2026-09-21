@@ -1,0 +1,697 @@
+/* ==========================================================================
+   LMS Mobile Login Screen - iPhone 17 Pro Max Specs
+   Dimensi Standar: 440px x 956px (Logical Resolution @3x Retina)
+   ========================================================================== */
+
+:root {
+  /* Skema Warna Presisi sesuai Screenshot */
+  --primary-blue: #1A92F1;
+  --primary-blue-hover: #1282D8;
+  --primary-blue-gradient: linear-gradient(180deg, #2EA0F6 0%, #1588E5 100%);
+  --primary-glow: 0 8px 24px rgba(21, 136, 229, 0.38);
+  --primary-glow-active: 0 4px 14px rgba(21, 136, 229, 0.45);
+
+  --bg-gradient-top: #C8EBFC;
+  --bg-gradient-mid: #F8FBFE;
+  --bg-gradient-bottom: #D0EEFD;
+
+  --text-dark: #1E293B;
+  --text-muted: #7E93A6;
+  --text-link: #2497F2;
+
+  --input-bg: rgba(255, 255, 255, 0.78);
+  --input-border: #DFEDF7;
+  --input-border-focus: #1A92F1;
+  --input-icon: #9BB0C4;
+
+  /* Dimensi iPhone 17 Pro Max */
+  --iphone-width: 440px;
+  --iphone-height: 956px;
+  --iphone-radius: 54px;
+}
+
+/* Reset Dasar */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+  background-color: #EBF3F9;
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Toolbar Pratinjau (Untuk kemudahan saat dibuka di Desktop / VS Code)
+   ========================================================================== */
+.preview-toolbar {
+  position: fixed;
+  top: 14px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 8px 16px;
+  border-radius: 999px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(220, 230, 240, 0.8);
+  font-size: 13px;
+  transition: opacity 0.3s ease;
+}
+
+.toolbar-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.device-badge {
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.device-res {
+  color: #64748B;
+  background: #F1F5F9;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-tool {
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  color: #334155;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-tool:hover {
+  background: #E2E8F0;
+  color: #0F172A;
+}
+
+/* ==========================================================================
+   Wadah Mobile & Frame Bezel iPhone 17 Pro Max
+   ========================================================================== */
+.mobile-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 70px 16px 36px 16px;
+  width: 100%;
+}
+
+/* Frame Bezel Fisik */
+.iphone-bezel {
+  width: calc(var(--iphone-width) + 24px);
+  height: calc(var(--iphone-height) + 24px);
+  background: #1C1D1F;
+  border-radius: var(--iphone-radius);
+  padding: 12px;
+  position: relative;
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+    0 24px 60px -12px rgba(15, 23, 42, 0.35),
+    0 12px 28px -6px rgba(15, 23, 42, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tombol Volume & Power iPhone (Detail Frame) */
+.iphone-bezel::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 130px;
+  width: 4px;
+  height: 50px;
+  background: #2D2E32;
+  border-radius: 3px 0 0 3px;
+  box-shadow: 
+    0 65px 0 #2D2E32,
+    0 125px 0 #2D2E32;
+}
+
+.iphone-bezel::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: 180px;
+  width: 4px;
+  height: 80px;
+  background: #2D2E32;
+  border-radius: 0 3px 3px 0;
+}
+
+/* ==========================================================================
+   Layar / Canvas (440px x 956px)
+   ========================================================================== */
+.screen-canvas {
+  width: var(--iphone-width);
+  height: var(--iphone-height);
+  border-radius: calc(var(--iphone-radius) - 10px);
+  background: linear-gradient(
+    180deg, 
+    var(--bg-gradient-top) 0%, 
+    #DCF1FD 18%,
+    var(--bg-gradient-mid) 48%, 
+    #E6F4FD 80%,
+    var(--bg-gradient-bottom) 100%
+  );
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* ==========================================================================
+   Status Bar iOS & Dynamic Island
+   ========================================================================== */
+.ios-status-bar {
+  height: 56px;
+  padding: 14px 28px 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 20;
+  position: relative;
+}
+
+.status-left {
+  width: 70px;
+}
+
+.ios-clock {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.2px;
+}
+
+/* Dynamic Island */
+.dynamic-island {
+  position: absolute;
+  top: 11px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 126px;
+  height: 35px;
+  background: #000000;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 12px;
+  gap: 10px;
+  z-index: 30;
+}
+
+.island-camera {
+  width: 11px;
+  height: 11px;
+  background: #0D1628;
+  border-radius: 50%;
+  border: 1px solid #1E293B;
+  box-shadow: inset 0 0 3px #0584FE;
+}
+
+.island-sensor {
+  width: 9px;
+  height: 9px;
+  background: #090E17;
+  border-radius: 50%;
+}
+
+.status-right {
+  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  color: #111827;
+}
+
+.ios-icon {
+  width: 17px;
+  height: 17px;
+}
+
+.ios-battery {
+  display: flex;
+  align-items: center;
+  gap: 1.5px;
+}
+
+.battery-body {
+  width: 22px;
+  height: 11.5px;
+  border: 1.8px solid #111827;
+  border-radius: 3.5px;
+  padding: 1.5px;
+  display: flex;
+  align-items: center;
+}
+
+.battery-level {
+  width: 100%;
+  height: 100%;
+  background-color: #111827;
+  border-radius: 1.5px;
+}
+
+.battery-cap {
+  width: 1.5px;
+  height: 4.5px;
+  background-color: #111827;
+  border-radius: 0 1px 1px 0;
+}
+
+/* ==========================================================================
+   Screen Body / Konten
+   ========================================================================== */
+.screen-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 38px;
+  margin-top: -30px; /* Kompensasi visual agar posisi pas seperti screenshot */
+}
+
+/* Logo Topi Toga & LMS Title */
+.brand-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 34px;
+}
+
+.cap-logo-wrapper {
+  width: 130px;
+  height: 98px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.cap-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 6px 16px rgba(27, 155, 240, 0.22));
+}
+
+.brand-title {
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--primary-blue);
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.brand-subtitle {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.45;
+  letter-spacing: -0.1px;
+}
+
+/* ==========================================================================
+   Form Login
+   ========================================================================== */
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Input Group */
+.input-group {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.form-control {
+  width: 100%;
+  height: 52px;
+  background: var(--input-bg);
+  border: 1.2px solid var(--input-border);
+  border-radius: 14px;
+  padding: 0 46px 0 46px;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--text-dark);
+  outline: none;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.form-control::placeholder {
+  color: #92A5B8;
+  font-weight: 400;
+}
+
+.form-control:focus {
+  background: #FFFFFF;
+  border-color: var(--input-border-focus);
+  box-shadow: 0 0 0 3.5px rgba(26, 146, 241, 0.16);
+}
+
+/* Ikon Sisi Kiri & Kanan Input */
+.input-icon-left {
+  position: absolute;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--input-icon);
+  pointer-events: none;
+}
+
+.input-icon-left svg {
+  width: 19px;
+  height: 19px;
+}
+
+.input-icon-right {
+  position: absolute;
+  right: 14px;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--input-icon);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  transition: color 0.2s ease;
+}
+
+.input-icon-right:hover {
+  color: var(--primary-blue);
+}
+
+.input-icon-right svg {
+  width: 19px;
+  height: 19px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Baris Opsi: Ingat Saya & Lupa Password */
+.form-options-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+  padding: 0 2px;
+}
+
+/* Custom Checkbox */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-container input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.custom-checkbox {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: #DFEDF7;
+  border: 1px solid #CBDDEB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.custom-checkbox svg {
+  width: 12px;
+  height: 12px;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: all 0.2s ease;
+}
+
+.checkbox-container input:checked ~ .custom-checkbox {
+  background: var(--primary-blue);
+  border-color: var(--primary-blue);
+}
+
+.checkbox-container input:checked ~ .custom-checkbox svg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.checkbox-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* Link Lupa Password */
+.link-forgot {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-link);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.link-forgot:hover {
+  opacity: 0.82;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Tombol Masuk
+   ========================================================================== */
+.btn-group {
+  margin-top: 14px;
+  width: 100%;
+}
+
+.btn-primary {
+  width: 100%;
+  height: 52px;
+  border: none;
+  border-radius: 999px;
+  background: var(--primary-blue-gradient);
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 15.5px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  box-shadow: var(--primary-glow);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 0 10px 28px rgba(21, 136, 229, 0.45);
+}
+
+.btn-primary:active {
+  transform: scale(0.985);
+  box-shadow: var(--primary-glow-active);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.form-footer {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  text-align: center;
+}
+
+.footer-prompt {
+  font-size: 12.5px;
+  color: #8295A7;
+  font-weight: 500;
+}
+
+.footer-link {
+  font-size: 13px;
+  color: var(--primary-blue);
+  font-weight: 700;
+  text-decoration: underline;
+  transition: opacity 0.2s ease;
+}
+
+.footer-link:hover {
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   Home Indicator iOS
+   ========================================================================== */
+.ios-home-indicator-area {
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 8px;
+  z-index: 20;
+}
+
+.ios-home-indicator {
+  width: 140px;
+  height: 4.5px;
+  background-color: #0F172A;
+  border-radius: 10px;
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   Toast Notifikasi Interaktif
+   ========================================================================== */
+.toast-popup {
+  position: absolute;
+  bottom: 55px;
+  left: 50%;
+  transform: translateX(-50%) translateY(30px);
+  background: rgba(15, 23, 42, 0.92);
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 50;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.toast-popup.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* ==========================================================================
+   Mode Tampilan: Raw Viewport vs Bezel Frame
+   ========================================================================== */
+
+/* Ketika mode bezel dinonaktifkan / dibuka langsung pada mobile emulator */
+body.pure-screen .mobile-wrapper {
+  padding: 0;
+}
+
+body.pure-screen .iphone-bezel {
+  width: var(--iphone-width);
+  height: var(--iphone-height);
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+body.pure-screen .iphone-bezel::before,
+body.pure-screen .iphone-bezel::after {
+  display: none;
+}
+
+body.pure-screen .screen-canvas {
+  border-radius: 0;
+}
+
+/* Responsif: Saat dibuka pada ekstensi Mobile View di VS Code atau layar kecil */
+@media (max-width: 480px) {
+  body {
+    background: var(--bg-gradient-top);
+  }
+
+  .preview-toolbar {
+    display: none; /* Sembunyikan toolbar jika sudah berada di mobile view */
+  }
+
+  .mobile-wrapper {
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+  }
+
+  .iphone-bezel {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .iphone-bezel::before,
+  .iphone-bezel::after {
+    display: none;
+  }
+
+  .screen-canvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
