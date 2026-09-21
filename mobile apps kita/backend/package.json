@@ -1,0 +1,12 @@
+{
+  "name": "lms-mobile-backend",
+  "version": "1.0.0",
+  "description": "Backend API untuk LMS Mobile App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["lms", "mobile", "api"],
+  "author": "",
+  "license": "ISC"
+}

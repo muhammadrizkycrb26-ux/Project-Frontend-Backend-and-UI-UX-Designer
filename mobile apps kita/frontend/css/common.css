@@ -1,0 +1,410 @@
+/* ==========================================================================
+   LMS Mobile - Common Styles & iPhone 17 Pro Max Viewport Specs
+   Dimensi Standar: 440px x 956px (Logical Resolution @3x Retina)
+   ========================================================================== */
+
+:root {
+  /* Skema Warna Presisi */
+  --primary-blue: #1A92F1;
+  --primary-blue-hover: #1282D8;
+  --primary-blue-gradient: linear-gradient(180deg, #2EA0F6 0%, #1588E5 100%);
+  --primary-glow: 0 8px 24px rgba(21, 136, 229, 0.38);
+  --primary-glow-active: 0 4px 14px rgba(21, 136, 229, 0.45);
+
+  --bg-gradient-top: #C8EBFC;
+  --bg-gradient-mid: #F8FBFE;
+  --bg-gradient-bottom: #D0EEFD;
+
+  --text-dark: #1E293B;
+  --text-muted: #7E93A6;
+  --text-link: #2497F2;
+
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --card-border: #E2EEF8;
+  --card-shadow: 0 4px 16px rgba(26, 146, 241, 0.06);
+
+  /* Dimensi iPhone 17 Pro Max */
+  --iphone-width: 440px;
+  --iphone-height: 956px;
+  --iphone-radius: 54px;
+}
+
+/* Reset Dasar */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+  background-color: #EBF3F9;
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Toolbar Pratinjau Desktop / VS Code
+   ========================================================================== */
+.preview-toolbar {
+  position: fixed;
+  top: 14px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 8px 16px;
+  border-radius: 999px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(220, 230, 240, 0.8);
+  font-size: 13px;
+  transition: opacity 0.3s ease;
+}
+
+.toolbar-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.device-badge {
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.device-res {
+  color: #64748B;
+  background: #F1F5F9;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-tool {
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  color: #334155;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-tool:hover {
+  background: #E2E8F0;
+  color: #0F172A;
+}
+
+/* ==========================================================================
+   Wadah Mobile & Bezel iPhone 17 Pro Max
+   ========================================================================== */
+.mobile-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 70px 16px 36px 16px;
+  width: 100%;
+}
+
+.iphone-bezel {
+  width: calc(var(--iphone-width) + 24px);
+  height: calc(var(--iphone-height) + 24px);
+  background: #1C1D1F;
+  border-radius: var(--iphone-radius);
+  padding: 12px;
+  position: relative;
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+    0 24px 60px -12px rgba(15, 23, 42, 0.35),
+    0 12px 28px -6px rgba(15, 23, 42, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tombol Samping iPhone (Volume & Power) */
+.iphone-bezel::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 130px;
+  width: 4px;
+  height: 50px;
+  background: #2D2E32;
+  border-radius: 3px 0 0 3px;
+  box-shadow: 
+    0 65px 0 #2D2E32,
+    0 125px 0 #2D2E32;
+}
+
+.iphone-bezel::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: 180px;
+  width: 4px;
+  height: 80px;
+  background: #2D2E32;
+  border-radius: 0 3px 3px 0;
+}
+
+/* ==========================================================================
+   Layar / Canvas Utama (440px x 956px)
+   ========================================================================== */
+.screen-canvas {
+  width: var(--iphone-width);
+  height: var(--iphone-height);
+  border-radius: calc(var(--iphone-radius) - 10px);
+  background: linear-gradient(
+    180deg, 
+    var(--bg-gradient-top) 0%, 
+    #DCF1FD 18%,
+    var(--bg-gradient-mid) 48%, 
+    #E6F4FD 80%,
+    var(--bg-gradient-bottom) 100%
+  );
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* ==========================================================================
+   Status Bar iOS & Dynamic Island
+   ========================================================================== */
+.ios-status-bar {
+  height: 56px;
+  padding: 14px 28px 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 20;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.status-left {
+  width: 70px;
+}
+
+.ios-clock {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.2px;
+}
+
+/* Dynamic Island */
+.dynamic-island {
+  position: absolute;
+  top: 11px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 126px;
+  height: 35px;
+  background: #000000;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 12px;
+  gap: 10px;
+  z-index: 30;
+}
+
+.island-camera {
+  width: 11px;
+  height: 11px;
+  background: #0D1628;
+  border-radius: 50%;
+  border: 1px solid #1E293B;
+  box-shadow: inset 0 0 3px #0584FE;
+}
+
+.island-sensor {
+  width: 9px;
+  height: 9px;
+  background: #090E17;
+  border-radius: 50%;
+}
+
+.status-right {
+  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  color: #111827;
+}
+
+.ios-icon {
+  width: 17px;
+  height: 17px;
+}
+
+.ios-battery {
+  display: flex;
+  align-items: center;
+  gap: 1.5px;
+}
+
+.battery-body {
+  width: 22px;
+  height: 11.5px;
+  border: 1.8px solid #111827;
+  border-radius: 3.5px;
+  padding: 1.5px;
+  display: flex;
+  align-items: center;
+}
+
+.battery-level {
+  width: 100%;
+  height: 100%;
+  background-color: #111827;
+  border-radius: 1.5px;
+}
+
+.battery-cap {
+  width: 1.5px;
+  height: 4.5px;
+  background-color: #111827;
+  border-radius: 0 1px 1px 0;
+}
+
+/* ==========================================================================
+   Home Indicator iOS
+   ========================================================================== */
+.ios-home-indicator-area {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 8px;
+  z-index: 30;
+  flex-shrink: 0;
+}
+
+.ios-home-indicator {
+  width: 140px;
+  height: 4.5px;
+  background-color: #0F172A;
+  border-radius: 10px;
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   Toast Notifikasi Interaktif iOS
+   ========================================================================== */
+.toast-popup {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%) translateY(30px);
+  background: rgba(15, 23, 42, 0.92);
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 99;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.toast-popup.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* ==========================================================================
+   Mode Tampilan & Responsivitas Ekstensi Mobile
+   ========================================================================== */
+body.pure-screen .mobile-wrapper {
+  padding: 0;
+}
+
+body.pure-screen .iphone-bezel {
+  width: var(--iphone-width);
+  height: var(--iphone-height);
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+body.pure-screen .iphone-bezel::before,
+body.pure-screen .iphone-bezel::after {
+  display: none;
+}
+
+body.pure-screen .screen-canvas {
+  border-radius: 0;
+}
+
+@media (max-width: 480px) {
+  body {
+    background: var(--bg-gradient-top);
+  }
+
+  .preview-toolbar {
+    display: none;
+  }
+
+  .mobile-wrapper {
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+  }
+
+  .iphone-bezel {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .iphone-bezel::before,
+  .iphone-bezel::after {
+    display: none;
+  }
+
+  .screen-canvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}

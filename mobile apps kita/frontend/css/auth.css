@@ -1,0 +1,294 @@
+/* ==========================================================================
+   LMS Mobile - Login / Auth Styles
+   ========================================================================== */
+
+.screen-body-auth {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 38px;
+  margin-top: -30px;
+}
+
+/* Logo Topi Toga & LMS Title */
+.brand-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 34px;
+}
+
+.cap-logo-wrapper {
+  width: 130px;
+  height: 98px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.cap-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 6px 16px rgba(27, 155, 240, 0.22));
+}
+
+.brand-title {
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--primary-blue);
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.brand-subtitle {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.45;
+  letter-spacing: -0.1px;
+}
+
+/* Form Login */
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.input-group {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.form-control {
+  width: 100%;
+  height: 52px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1.2px solid #DFEDF7;
+  border-radius: 14px;
+  padding: 0 46px 0 46px;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--text-dark);
+  outline: none;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.form-control::placeholder {
+  color: #92A5B8;
+  font-weight: 400;
+}
+
+.form-control:focus {
+  background: #FFFFFF;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3.5px rgba(26, 146, 241, 0.16);
+}
+
+.input-icon-left {
+  position: absolute;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9BB0C4;
+  pointer-events: none;
+}
+
+.input-icon-left svg {
+  width: 19px;
+  height: 19px;
+}
+
+.input-icon-right {
+  position: absolute;
+  right: 14px;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9BB0C4;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  transition: color 0.2s ease;
+}
+
+.input-icon-right:hover {
+  color: var(--primary-blue);
+}
+
+.input-icon-right svg {
+  width: 19px;
+  height: 19px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Opsi Baris */
+.form-options-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+  padding: 0 2px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-container input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.custom-checkbox {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: #DFEDF7;
+  border: 1px solid #CBDDEB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.custom-checkbox svg {
+  width: 12px;
+  height: 12px;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: all 0.2s ease;
+}
+
+.checkbox-container input:checked ~ .custom-checkbox {
+  background: var(--primary-blue);
+  border-color: var(--primary-blue);
+}
+
+.checkbox-container input:checked ~ .custom-checkbox svg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.checkbox-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.link-forgot {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-link);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.link-forgot:hover {
+  opacity: 0.82;
+  text-decoration: underline;
+}
+
+/* Tombol Masuk */
+.btn-group {
+  margin-top: 14px;
+  width: 100%;
+}
+
+.btn-primary {
+  width: 100%;
+  height: 52px;
+  border: none;
+  border-radius: 999px;
+  background: var(--primary-blue-gradient);
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 15.5px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  box-shadow: var(--primary-glow);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 0 10px 28px rgba(21, 136, 229, 0.45);
+}
+
+.btn-primary:active {
+  transform: scale(0.985);
+  box-shadow: var(--primary-glow-active);
+}
+
+/* Keterangan Login Cepat (Hint Admin) */
+.login-hint-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(26, 146, 241, 0.1);
+  border: 1px dashed rgba(26, 146, 241, 0.35);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 11.5px;
+  color: #1579CA;
+  margin-top: 4px;
+  text-align: center;
+}
+
+/* Footer */
+.form-footer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  text-align: center;
+}
+
+.footer-prompt {
+  font-size: 12.5px;
+  color: #8295A7;
+  font-weight: 500;
+}
+
+.footer-link {
+  font-size: 13px;
+  color: var(--primary-blue);
+  font-weight: 700;
+  text-decoration: underline;
+  transition: opacity 0.2s ease;
+}
+
+.footer-link:hover {
+  opacity: 0.85;
+}
